@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Button,
@@ -26,6 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import LoggingModule from './modules/LoggingModule';
+import {ProgressBar} from './native-components/ProgressBar';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -64,6 +65,12 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => setProgress(old => (old === 100 ? 0 : old + 1)), 50);
+  }, [setProgress]);
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -78,6 +85,10 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <ProgressBar
+            progress={(100 - progress) / 100}
+            style={{width: '80%'}}
+          />
           <Button
             onPress={async () => {
               const response = await LoggingModule.log(
@@ -98,6 +109,11 @@ function App(): JSX.Element {
               }
             }}
             title="log erroneous message"
+          />
+          <ProgressBar
+            progress={progress / 100}
+            style={{width: '100%', height: 12}}
+            onPress={() => console.log('pressed!')}
           />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this

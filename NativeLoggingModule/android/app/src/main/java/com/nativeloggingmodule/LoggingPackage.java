@@ -19,6 +19,6 @@ public class LoggingPackage implements ReactPackage {
     @NonNull
     @Override
     public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactApplicationContext) {
-        return List.of();
+        return List.of(new ReactProgressBarManager(reactApplicationContext));
     }
 }
