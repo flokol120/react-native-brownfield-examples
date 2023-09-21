@@ -13,7 +13,7 @@ public class LoggingPackage implements ReactPackage {
     @NonNull
     @Override
     public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactApplicationContext) {
-        return List.of(new LoggingModule(reactApplicationContext));
+        return List.of(new LoggingModule(reactApplicationContext), new EventEmitterModule(reactApplicationContext));
     }
 
     @NonNull

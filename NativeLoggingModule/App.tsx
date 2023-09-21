@@ -5,10 +5,11 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Button,
+  NativeEventEmitter,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -26,6 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import LoggingModule from './modules/LoggingModule';
+import EventEmitterModule from './modules/EventEmitterModule';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,6 +65,16 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    const eventEmitter = new NativeEventEmitter(EventEmitterModule);
+    const listener = [
+      eventEmitter.addListener('logToReactNative', (message: string) =>
+        console.log(message),
+      ),
+    ];
+    return () => listener.forEach(currListener => currListener.remove());
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
