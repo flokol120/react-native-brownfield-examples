@@ -28,6 +28,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import LoggingModule from './modules/LoggingModule';
 import EventEmitterModule from './modules/EventEmitterModule';
+import TurboLoggingModule from './turbo-files/NativeLogging';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -68,11 +69,8 @@ function App(): JSX.Element {
 
   useEffect(() => {
     const eventEmitter = new NativeEventEmitter(EventEmitterModule);
-    const listener = [
-      eventEmitter.addListener('logToReactNative', (message: string) =>
-        console.log(message),
-      ),
-    ];
+    // silence event emitter to avoid console spam
+    const listener = [eventEmitter.addListener('logToReactNative', () => {})];
     return () => listener.forEach(currListener => currListener.remove());
   }, []);
 
@@ -110,6 +108,27 @@ function App(): JSX.Element {
               }
             }}
             title="log erroneous message"
+          />
+          <Button
+            onPress={async () => {
+              const response = await TurboLoggingModule?.log(
+                'Hello!',
+                'Hello from React Native using Turbo Modules!',
+              );
+              console.log(response);
+            }}
+            title="log message (turbo)"
+          />
+          <Button
+            onPress={async () => {
+              try {
+                const response = await TurboLoggingModule?.log('', 'No title');
+                console.log(response);
+              } catch (e) {
+                console.warn(e);
+              }
+            }}
+            title="log erroneous message (turbo)"
           />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this

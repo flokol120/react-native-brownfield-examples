@@ -40,5 +40,13 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "codegenConfig": {
+    "name": "RTNLoggingSpec",
+    "type": "modules",
+    "jsSrcsDir": "turbo-files",
+    "android": {
+      "javaPackageName": "com.rtnlogging"
+    }
   }
 }
