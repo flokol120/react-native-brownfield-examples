@@ -5,9 +5,6 @@
       <module name="com.facebook.react.react-native-gradle-plugin" target="11" />
       <module name="com.facebook.react.react-native-gradle-plugin.main" target="11" />
       <module name="com.facebook.react.react-native-gradle-plugin.test" target="11" />
-      <module name="react-native-gradle-plugin" target="11" />
-      <module name="react-native-gradle-plugin.main" target="11" />
-      <module name="react-native-gradle-plugin.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.facebook.react.ReactFragment;
 import com.flodoerr.exampleintegration.R;
 import com.flodoerr.exampleintegration.databinding.FragmentNonFullscreenBinding;
 
@@ -33,16 +34,29 @@ public class NonFullscreenCounterFragment extends Fragment {
         nonFullscreenCounterViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         Button button = root.findViewById(R.id.openReactNative);
-        button.setOnClickListener(v -> {});
+        button.setOnClickListener(v -> createReactNativeView());
 
         root.findViewById(R.id.increment).setOnClickListener(v -> {
             count++;
+            createReactNativeView();
         });
         root.findViewById(R.id.decrement).setOnClickListener(v -> {
             count--;
+            createReactNativeView();
         });
 
         return root;
+    }
+
+    private void createReactNativeView() {
+        Bundle options = new Bundle();
+        options.putInt("initialCount", count);
+        Fragment reactNativeFragment = new ReactFragment.Builder()
+                .setComponentName("Counter")
+                .setLaunchOptions(options)
+                .setFabricEnabled(false)
+                .build();
+        getChildFragmentManager().beginTransaction().add(R.id.react_native_counter, reactNativeFragment).commit();
     }
 
     @Override

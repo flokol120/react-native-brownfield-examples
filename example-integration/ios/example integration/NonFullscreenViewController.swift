@@ -1,4 +1,5 @@
 import UIKit
+import React
 
 class NonFullscreenViewController: UIViewController {
     
@@ -15,7 +16,18 @@ class NonFullscreenViewController: UIViewController {
     }
     
     @IBAction func openReactNative() {
-        
+        let reactNativeView = RCTRootView(bridge: AppDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": self.count])
+        self.view.addSubview(reactNativeView)
+        reactNativeView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            reactNativeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            reactNativeView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        let anchor = self.view.viewWithTag(1)!
+        NSLayoutConstraint.activate([
+            reactNativeView.topAnchor.constraint(equalTo: anchor.bottomAnchor),
+            reactNativeView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     @IBAction func increment() {

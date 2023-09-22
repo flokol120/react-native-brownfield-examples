@@ -1,16 +1,23 @@
-//
-//  AppDelegate.swift
-//  example integration
-//
-//  Created by admin on 12.07.23.
-//
-
 import UIKit
+import React
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
+    
+    func sourceURL(for bridge: RCTBridge!) -> URL! {
+#if DEBUG
+        // replace with IP/Hostname of the mac if using on a real device and not a simulator
+        return URL(string: "http://localhost:8081/index.bundle?platform=ios")
+#else
+        return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+#endif
+    }
+    
+    static var bridge: RCTBridge?
+    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        AppDelegate.bridge = RCTBridge(delegate: self, launchOptions: launchOptions)
         return true
     }
     
@@ -29,4 +36,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-
