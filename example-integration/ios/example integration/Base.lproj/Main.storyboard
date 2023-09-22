@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zHV-uz-xTn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7If-1M-yHh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -9,132 +9,133 @@
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
-        <scene sceneID="Wyu-sO-QtQ">
+        <scene sceneID="D1E-7R-P7J">
             <objects>
-                <tabBarController id="zHV-uz-xTn" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sV4-p8-gOh">
+                <tabBarController id="7If-1M-yHh" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sEl-he-XeX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1bz-y7-LmN" kind="relationship" relationship="viewControllers" id="fEH-lt-Rru"/>
-                        <segue destination="cby-ui-2TO" kind="relationship" relationship="viewControllers" id="O75-fu-U2e"/>
+                        <segue destination="sKZ-k0-gc7" kind="relationship" relationship="viewControllers" id="Y6c-fC-fKO"/>
+                        <segue destination="HWs-6D-g3Z" kind="relationship" relationship="viewControllers" id="jb2-GK-Ktj"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KtC-7e-Kh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vAy-HD-gR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2142" y="-581"/>
         </scene>
         <!--Fullscreen-->
-        <scene sceneID="Hkx-WT-hXr">
+        <scene sceneID="sxk-lR-BVc">
             <objects>
-                <navigationController id="1bz-y7-LmN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Fullscreen" image="camera" catalog="system" selectedImage="camera" id="MFI-tN-rmx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j9d-Fa-Pk9">
+                <navigationController id="sKZ-k0-gc7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fullscreen" image="camera" catalog="system" selectedImage="camera" id="cC6-fw-6VE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YNA-dE-DQw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="69A-ih-cIp" kind="relationship" relationship="rootViewController" id="ZXh-GR-hkw"/>
+                        <segue destination="QSG-OG-i3Q" kind="relationship" relationship="rootViewController" id="ins-cQ-SRl"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3h3-8k-s1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUb-UR-0om" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1494" y="195"/>
         </scene>
         <!--Non Fullscreen-->
-        <scene sceneID="n0X-9c-lbK">
+        <scene sceneID="MzT-q1-d6m">
             <objects>
-                <navigationController id="cby-ui-2TO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Non Fullscreen" image="photo.on.rectangle" catalog="system" selectedImage="photo.on.rectangle" id="lGB-bL-AuN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XcD-dn-W6i">
+                <navigationController id="HWs-6D-g3Z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Non Fullscreen" image="photo.on.rectangle" catalog="system" selectedImage="photo.on.rectangle" id="UQl-KO-xYp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7RB-Qn-utg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="lFK-OF-VUP" kind="relationship" relationship="rootViewController" id="aqZ-Lr-uID"/>
+                        <segue destination="Ash-UI-ao9" kind="relationship" relationship="rootViewController" id="Mzi-QP-oSc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RBZ-Tj-2aA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JGF-KF-7fL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2791" y="195"/>
         </scene>
         <!--Fullscreen View Controller-->
-        <scene sceneID="Qkw-z9-NWO">
+        <scene sceneID="nkp-9F-46u">
             <objects>
-                <viewController id="69A-ih-cIp" customClass="FullscreenViewController" customModule="example_integration" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K9L-di-iGQ">
+                <viewController id="QSG-OG-i3Q" customClass="FullscreenViewController" customModule="example_integration" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n8k-2v-LDr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="riV-Ox-TLS"/>
+                        <viewLayoutGuide key="safeArea" id="LiY-RI-HLB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7oZ-fl-Bbc"/>
+                    <navigationItem key="navigationItem" id="5aD-GF-M9m"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="65t-VR-cEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3M-fo-gIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1493" y="870"/>
         </scene>
         <!--Non Fullscreen View Controller-->
-        <scene sceneID="NAR-HK-ej6">
+        <scene sceneID="wjt-gz-6xE">
             <objects>
-                <viewController id="lFK-OF-VUP" customClass="NonFullscreenViewController" customModule="example_integration" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XKC-Zx-DSl">
+                <viewController id="Ash-UI-ao9" customClass="NonFullscreenViewController" customModule="example_integration" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GR8-nb-abc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is a non fullscreen react native view. This view has existing native elements." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD1-dz-i6y" userLabel="This is a non fullscreen view">
-                                <rect key="frame" x="0.0" y="437.5" width="414" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a non fullscreen react native view. This view has existing native elements." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PD1-ur-SzQ" userLabel="This is a non fullscreen view">
+                                <rect key="frame" x="0.0" y="146" width="389.5" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjP-KT-BKH">
-                                <rect key="frame" x="135" y="486.5" width="144" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyY-zT-Lnh">
+                                <rect key="frame" x="24" y="195" width="341.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Open React Native"/>
                                 <connections>
-                                    <action selector="openReactNative" destination="lFK-OF-VUP" eventType="touchUpInside" id="dBM-2T-Qwp"/>
+                                    <action selector="openReactNative" destination="Ash-UI-ao9" eventType="touchUpInside" id="Z6h-BI-Fg9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbq-kb-ZzV">
-                                <rect key="frame" x="64" y="558.5" width="118" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPk-B8-yvV">
+                                <rect key="frame" x="20" y="234" width="118" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="increment (+1)"/>
                                 <connections>
-                                    <action selector="increment" destination="lFK-OF-VUP" eventType="touchUpInside" id="4ta-AC-UCc"/>
+                                    <action selector="increment" destination="Ash-UI-ao9" eventType="touchUpInside" id="1yg-9I-1qQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByO-Af-ucy">
-                                <rect key="frame" x="229" y="558.5" width="121" height="31"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAj-1Y-Z98">
+                                <rect key="frame" x="273" y="234" width="121" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="decrement (-1)"/>
                                 <connections>
-                                    <action selector="decrement" destination="lFK-OF-VUP" eventType="touchUpInside" id="Qwg-le-hsP"/>
+                                    <action selector="decrement" destination="Ash-UI-ao9" eventType="touchUpInside" id="1Vp-xe-8nO"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="0cK-DW-Ffn"/>
+                        <viewLayoutGuide key="safeArea" id="gRB-HV-Hrd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XD1-dz-i6y" secondAttribute="trailing" id="3SI-bS-FLY"/>
-                            <constraint firstItem="XD1-dz-i6y" firstAttribute="leading" secondItem="XKC-Zx-DSl" secondAttribute="leading" id="MmK-rr-kvp"/>
-                            <constraint firstItem="0cK-DW-Ffn" firstAttribute="trailing" secondItem="ByO-Af-ucy" secondAttribute="trailing" constant="64" id="bEz-ws-BjR"/>
-                            <constraint firstItem="XD1-dz-i6y" firstAttribute="centerY" secondItem="XKC-Zx-DSl" secondAttribute="centerY" id="eLF-2E-WG5"/>
-                            <constraint firstItem="jbq-kb-ZzV" firstAttribute="top" secondItem="vjP-KT-BKH" secondAttribute="bottom" constant="24" id="i2a-ol-uH0"/>
-                            <constraint firstItem="vjP-KT-BKH" firstAttribute="top" secondItem="XD1-dz-i6y" secondAttribute="bottom" constant="18" id="k0Q-Oa-mDo"/>
-                            <constraint firstItem="XD1-dz-i6y" firstAttribute="centerX" secondItem="vjP-KT-BKH" secondAttribute="centerX" id="ndC-qm-sqQ"/>
-                            <constraint firstItem="jbq-kb-ZzV" firstAttribute="leading" secondItem="0cK-DW-Ffn" secondAttribute="leading" constant="64" id="osx-eb-zHJ"/>
-                            <constraint firstItem="ByO-Af-ucy" firstAttribute="top" secondItem="vjP-KT-BKH" secondAttribute="bottom" constant="24" id="rVv-6R-13f"/>
-                            <constraint firstItem="vjP-KT-BKH" firstAttribute="leading" secondItem="0cK-DW-Ffn" secondAttribute="leading" constant="135" id="vCJ-jW-VjC"/>
+                            <constraint firstItem="PD1-ur-SzQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GR8-nb-abc" secondAttribute="leading" id="3jY-B3-l7Q"/>
+                            <constraint firstItem="PD1-ur-SzQ" firstAttribute="centerX" secondItem="LyY-zT-Lnh" secondAttribute="centerX" id="5RY-46-95Q"/>
+                            <constraint firstItem="mAj-1Y-Z98" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iPk-B8-yvV" secondAttribute="trailing" constant="8" symbolic="YES" id="6b5-0P-xDM"/>
+                            <constraint firstItem="iPk-B8-yvV" firstAttribute="leading" secondItem="GR8-nb-abc" secondAttribute="leadingMargin" id="7kQ-BV-Sw9"/>
+                            <constraint firstItem="iPk-B8-yvV" firstAttribute="baseline" secondItem="mAj-1Y-Z98" secondAttribute="baseline" id="CNl-89-r4p"/>
+                            <constraint firstItem="mAj-1Y-Z98" firstAttribute="trailing" secondItem="GR8-nb-abc" secondAttribute="trailingMargin" id="CdQ-Db-ZIt"/>
+                            <constraint firstItem="iPk-B8-yvV" firstAttribute="top" secondItem="LyY-zT-Lnh" secondAttribute="bottom" constant="8" symbolic="YES" id="Nlt-fY-kl9"/>
+                            <constraint firstItem="PD1-ur-SzQ" firstAttribute="top" secondItem="gRB-HV-Hrd" secondAttribute="top" constant="58" id="VP9-oD-7Ud"/>
+                            <constraint firstItem="LyY-zT-Lnh" firstAttribute="top" secondItem="PD1-ur-SzQ" secondAttribute="bottom" constant="8" symbolic="YES" id="cX5-uj-XJ3"/>
+                            <constraint firstItem="LyY-zT-Lnh" firstAttribute="leading" secondItem="gRB-HV-Hrd" secondAttribute="leading" constant="24" id="fwW-lt-WlR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PD1-ur-SzQ" secondAttribute="trailing" id="ygw-gz-DAA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QQX-Wf-2CR"/>
+                    <navigationItem key="navigationItem" id="S6j-ke-rnd"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gkW-dj-ydz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jb7-tV-03j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="870"/>
+            <point key="canvasLocation" x="2789.8550724637685" y="869.86607142857144"/>
         </scene>
     </scenes>
     <resources>

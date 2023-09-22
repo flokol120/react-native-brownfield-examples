@@ -16,7 +16,8 @@ class NonFullscreenViewController: UIViewController {
     }
     
     @IBAction func openReactNative() {
-        let reactNativeView = RCTRootView(bridge: AppDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": self.count])
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let reactNativeView = RCTFabricSurfaceHostingProxyRootView(bridge: appDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": self.count])
         self.view.addSubview(reactNativeView)
         reactNativeView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -25,8 +26,10 @@ class NonFullscreenViewController: UIViewController {
         ])
         let anchor = self.view.viewWithTag(1)!
         NSLayoutConstraint.activate([
-            reactNativeView.topAnchor.constraint(equalTo: anchor.bottomAnchor),
-            reactNativeView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            reactNativeView.topAnchor.constraint(equalTo: anchor.bottomAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            reactNativeView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     

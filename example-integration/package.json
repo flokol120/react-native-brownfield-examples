@@ -24,6 +24,7 @@
     "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
-    "android:port": "adb reverse tcp:8081 tcp:8081"
+    "android:port": "adb reverse tcp:8081 tcp:8081",
+    "ios:pods": "cd ios && USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install"
   }
 }

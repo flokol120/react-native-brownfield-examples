@@ -54,7 +54,7 @@ public class NonFullscreenCounterFragment extends Fragment {
         Fragment reactNativeFragment = new ReactFragment.Builder()
                 .setComponentName("Counter")
                 .setLaunchOptions(options)
-                .setFabricEnabled(false)
+                .setFabricEnabled(true)
                 .build();
         getChildFragmentManager().beginTransaction().add(R.id.react_native_counter, reactNativeFragment).commit();
     }

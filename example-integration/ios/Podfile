@@ -28,7 +28,7 @@ target 'example integration' do
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
     :hermes_enabled => flags[:hermes_enabled],
-    :fabric_enabled => ENV['USE_FABRIC'],
+    :fabric_enabled => flags[:fabric_enabled],
     # Enables Flipper.
     #
     # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -45,7 +45,6 @@ target 'example integration' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    # uncomment if you are using a non intel Mac
-    # __fix_double_definition_of_clockid_in_folly()
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
