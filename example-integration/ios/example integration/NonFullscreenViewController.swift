@@ -7,7 +7,7 @@ class NonFullscreenViewController: UIViewController {
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.count = Int.random(in: 1..<101)
+        MockDB.instance().setRandomCounter()
     }
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class NonFullscreenViewController: UIViewController {
     
     @IBAction func openReactNative() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let reactNativeView = RCTFabricSurfaceHostingProxyRootView(bridge: appDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": self.count])
+        let reactNativeView = RCTFabricSurfaceHostingProxyRootView(bridge: appDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": MockDB.instance().getCounter()])
         self.view.addSubview(reactNativeView)
         reactNativeView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -34,12 +34,12 @@ class NonFullscreenViewController: UIViewController {
     }
     
     @IBAction func increment() {
-        self.count += 1
+        MockDB.instance().increment()
         self.openReactNative()
     }
     
     @IBAction func decrement() {
-        self.count -= 1
+        MockDB.instance().decrement()
         self.openReactNative()
     }
 }

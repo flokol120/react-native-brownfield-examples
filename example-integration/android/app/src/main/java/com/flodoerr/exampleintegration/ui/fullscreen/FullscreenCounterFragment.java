@@ -9,9 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.facebook.react.ReactFragment;
+import com.flodoerr.exampleintegration.MockDB;
 import com.flodoerr.exampleintegration.R;
-
-import java.util.Random;
 
 public class FullscreenCounterFragment extends Fragment {
 
@@ -25,7 +24,7 @@ public class FullscreenCounterFragment extends Fragment {
         }
         View view = inflater.inflate(R.layout.react_native_view, container, false);
         Bundle options = new Bundle();
-        options.putInt("initialCount", new Random().nextInt(100) + 1);
+        options.putInt("initialCount", MockDB.instance().setRandomCounter());
         if (reactNativeFragment == null) {
             reactNativeFragment = new ReactFragment.Builder()
                     .setComponentName("Counter")
