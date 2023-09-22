@@ -2,12 +2,44 @@ import {useCallback, useEffect} from 'react';
 import {Text, View, Button, AppRegistry, StyleSheet} from 'react-native';
 import {withDefaultProvider} from '../misc/HOCs';
 import {
+  appendLargeData,
+  applyNestedChange,
   decrementCounter,
   incrementCounter,
+  removeLargeData,
   setCounter,
   useCount,
 } from '../redux/ApplicationState';
 import {useDispatch} from 'react-redux';
+import {store} from '../redux';
+
+// Profiling data, inserting, removing and updating large data sets
+
+const SIZE = 1; // 1 2 4 8 16 32
+
+const addDataSets = () => {
+  store.dispatch(removeLargeData());
+  for (let i = 0; i < SIZE; i++) {
+    store.dispatch(appendLargeData());
+  }
+};
+
+setTimeout(() => {
+  addDataSets();
+  let counter = 0;
+  const applyChanges = () => {
+    if (counter === 30) {
+      counter = 0;
+      console.log('REMOVING large data sets');
+      addDataSets();
+      return;
+    }
+    console.log('MODIFYING large data set');
+    store.dispatch(applyNestedChange());
+    counter++;
+  };
+  setInterval(applyChanges, 1000);
+}, 5000);
 
 type CounterProps = {initialCount?: number};
 
