@@ -1,10 +1,12 @@
 package com.flodoerr.exampleintegration;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.androidnetworking.AndroidNetworking;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -26,15 +28,29 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.facebook.soloader.SoLoader;
+import com.flodoerr.exampleintegration.rest.MainRestServer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.skornei.restserver.RestServerManager;
+
 public class MainApplication extends Application implements ReactApplication {
+
+    private final MainRestServer restServer = new MainRestServer();
 
     @Override
     public void onCreate() {
         super.onCreate();
+        RestServerManager.initialize(this);
+        AndroidNetworking.initialize(getApplicationContext());
+        try {
+            restServer.start();
+            Log.d("REST", "Rest Server started");
+        } catch (IOException e) {
+            Log.d("REST", "Rest Server couldn't be started");
+        }
         SoLoader.init(this, false);
     }
 

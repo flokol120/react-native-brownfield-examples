@@ -24,6 +24,15 @@ export function Counter({initialCount}: CounterProps) {
     dispatch(setCounter(initialCount));
   }, [initialCount, dispatch]);
 
+  useEffect(() => {
+    // update current counter in native apps via the REST API
+    fetch('http://localhost:3001/counter', {
+      method: 'POST',
+      body: JSON.stringify({counter: count}),
+      headers: {'Content-Type': 'application/json', Accept: 'text/plain'},
+    });
+  }, [count]);
+
   return (
     <View>
       <View style={styles.container}>

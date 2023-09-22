@@ -1,6 +1,7 @@
 package com.flodoerr.exampleintegration.ui.nonfullscreen;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 import com.facebook.react.ReactFragment;
 import com.flodoerr.exampleintegration.MockDB;
 import com.flodoerr.exampleintegration.R;
 import com.flodoerr.exampleintegration.databinding.FragmentNonFullscreenBinding;
 
 public class NonFullscreenCounterFragment extends Fragment {
+
+    private final String url = "http://localhost:3000";
 
     private FragmentNonFullscreenBinding binding;
 
@@ -36,11 +42,31 @@ public class NonFullscreenCounterFragment extends Fragment {
 
         root.findViewById(R.id.increment).setOnClickListener(v -> {
             MockDB.instance().increment();
-            createReactNativeView();
+            AndroidNetworking.get(url + "/increment").build().getAsString(new StringRequestListener() {
+                @Override
+                public void onResponse(String s) {
+                    Log.d("NonFullscreen", s);
+                }
+
+                @Override
+                public void onError(ANError anError) {
+
+                }
+            });
         });
         root.findViewById(R.id.decrement).setOnClickListener(v -> {
             MockDB.instance().decrement();
-            createReactNativeView();
+            AndroidNetworking.get(url + "/decrement").build().getAsString(new StringRequestListener() {
+                @Override
+                public void onResponse(String s) {
+                    Log.d("NonFullscreen", s);
+                }
+
+                @Override
+                public void onError(ANError anError) {
+
+                }
+            });
         });
 
         return root;

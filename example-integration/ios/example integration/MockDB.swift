@@ -25,6 +25,7 @@ class MockDB: NSObject {
     public func setCounter(counter: Int) {
         self.counter = counter
     }
+    @objc
     public func getCounter() -> Int {
         return self.counter
     }

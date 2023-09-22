@@ -6,5 +6,6 @@ class FullscreenViewController: UIViewController {
         super.viewDidLoad()
         title = "Fullscreen"
         self.view = RCTRootView(bridge: AppDelegate.bridge!, moduleName: "Counter", initialProperties: ["initialCount": MockDB.instance().setRandomCounter()])
+        self.view.addSubview(RCTRootView(bridge: AppDelegate.bridge!, moduleName: "REST", initialProperties: [:]))
     }
 }

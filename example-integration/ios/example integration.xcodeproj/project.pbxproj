@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		70D7BDE44391E212F156F1A2 /* libPods-example integration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C2CEF546F9B2E088329338 /* libPods-example integration.a */; };
 		8482CC192ABDA04600FE3624 /* MockDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482CC182ABDA04600FE3624 /* MockDB.swift */; };
+		8482CC262ABDB7DD00FE3624 /* REST.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482CC252ABDB7DD00FE3624 /* REST.m */; };
 		848539A32A67C79400632F77 /* NonFullscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848539A22A67C79400632F77 /* NonFullscreenViewController.swift */; };
 		84B9AC942A5EF39A00B922F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9AC932A5EF39A00B922F2 /* AppDelegate.swift */; };
 		84B9AC962A5EF39A00B922F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9AC952A5EF39A00B922F2 /* SceneDelegate.swift */; };
@@ -21,6 +22,9 @@
 /* Begin PBXFileReference section */
 		023E17A71E77E08F5A250E3F /* Pods-example integration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example integration.release.xcconfig"; path = "Target Support Files/Pods-example integration/Pods-example integration.release.xcconfig"; sourceTree = "<group>"; };
 		8482CC182ABDA04600FE3624 /* MockDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDB.swift; sourceTree = "<group>"; };
+		8482CC242ABDB7DC00FE3624 /* example_integration-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "example_integration-Bridging-Header.h"; sourceTree = "<group>"; };
+		8482CC252ABDB7DD00FE3624 /* REST.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = REST.m; sourceTree = "<group>"; };
+		8482CC272ABDB81C00FE3624 /* REST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REST.h; sourceTree = "<group>"; };
 		848539A22A67C79400632F77 /* NonFullscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonFullscreenViewController.swift; sourceTree = "<group>"; };
 		84B9AC902A5EF39A00B922F2 /* example integration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example integration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B9AC932A5EF39A00B922F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,9 @@
 				84B9AC9E2A5EF39F00B922F2 /* LaunchScreen.storyboard */,
 				84B9ACA12A5EF39F00B922F2 /* Info.plist */,
 				8482CC182ABDA04600FE3624 /* MockDB.swift */,
+				8482CC252ABDB7DD00FE3624 /* REST.m */,
+				8482CC242ABDB7DC00FE3624 /* example_integration-Bridging-Header.h */,
+				8482CC272ABDB81C00FE3624 /* REST.h */,
 			);
 			path = "example integration";
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 				TargetAttributes = {
 					84B9AC8F2A5EF39A00B922F2 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -252,6 +260,7 @@
 				84B9AC982A5EF39A00B922F2 /* FullscreenViewController.swift in Sources */,
 				84B9AC942A5EF39A00B922F2 /* AppDelegate.swift in Sources */,
 				848539A32A67C79400632F77 /* NonFullscreenViewController.swift in Sources */,
+				8482CC262ABDB7DD00FE3624 /* REST.m in Sources */,
 				8482CC192ABDA04600FE3624 /* MockDB.swift in Sources */,
 				84B9AC962A5EF39A00B922F2 /* SceneDelegate.swift in Sources */,
 			);
@@ -343,14 +352,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -415,14 +418,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -437,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZST4X555J;
@@ -455,6 +453,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flodoerr.exampleintegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "example integration/example_integration-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZST4X555J;
@@ -484,6 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flodoerr.exampleintegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "example integration/example_integration-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

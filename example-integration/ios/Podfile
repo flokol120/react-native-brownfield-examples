@@ -20,6 +20,8 @@ end
 
 target 'example integration' do
   config = use_native_modules!
+  
+  pod "GCDWebServer", "~> 3.5.4"
 
   # Flags change depending on the env values.
   flags = get_default_flags()

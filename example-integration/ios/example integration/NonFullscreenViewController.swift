@@ -1,6 +1,8 @@
 import UIKit
 import React
 
+let url = URL(string: "http://localhost:3000")
+
 class NonFullscreenViewController: UIViewController {
     
     var count = 0
@@ -32,11 +34,13 @@ class NonFullscreenViewController: UIViewController {
     
     @IBAction func increment() {
         MockDB.instance().increment()
-        self.openReactNative()
+        let task = URLSession.shared.dataTask(with: url!.appendingPathComponent("increment"))
+        task.resume()
     }
     
     @IBAction func decrement() {
         MockDB.instance().decrement()
-        self.openReactNative()
+        let task = URLSession.shared.dataTask(with: url!.appendingPathComponent("decrement"))
+        task.resume()
     }
 }

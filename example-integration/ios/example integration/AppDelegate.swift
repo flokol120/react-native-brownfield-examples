@@ -4,6 +4,8 @@ import React
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
     
+    private var rest: REST!
+    
     func sourceURL(for bridge: RCTBridge!) -> URL! {
 #if DEBUG
         // replace with IP/Hostname of the mac if using on a real device and not a simulator
@@ -18,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AppDelegate.bridge = RCTBridge(delegate: self, launchOptions: launchOptions)
+        rest = REST()
+        rest.initRESTApi()
         return true
     }
     

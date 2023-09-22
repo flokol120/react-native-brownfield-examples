@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.facebook.react.ReactFragment;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // start empty REST Component
+        ReactFragment reactNativeFragment = new ReactFragment.Builder()
+                .setComponentName("REST")
+                .setLaunchOptions(null)
+                .setFabricEnabled(false)
+                .build();
+        getSupportFragmentManager().beginTransaction().add(R.id.react_native_fragment, reactNativeFragment).commit();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
