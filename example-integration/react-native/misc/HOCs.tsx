@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {SafeAreaView} from 'react-native';
 import {NetworkProvider} from 'react-native-offline';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistor, store} from '../redux';
+import {
+  CommandController,
+  CommandControllerContext,
+} from '../command/common/CommandController';
+import {useIsLoading} from './loadingHandler';
+import {LoadingIndicator} from '../components/LoadingIndicator';
 
 export const withReduxComponent =
   (Component: React.ComponentType<any>): React.FC<any> =>
@@ -30,11 +36,39 @@ export const withSafeAreaComponent =
       <Component {...props} />
     </SafeAreaView>
   );
+export const withCommandContext =
+  <T extends {baseURL: string}>(
+    Component: React.ComponentType<any>,
+  ): React.FC<T> =>
+  (props: any) => {
+    const commandController = useMemo(() => new CommandController(), []);
+    return (
+      <CommandControllerContext.Provider value={commandController}>
+        <Component {...props} />
+      </CommandControllerContext.Provider>
+    );
+  };
+
+export const withActivityIndicator =
+  (Component: React.ComponentType<any>): React.FC<any> =>
+  (props: any) => {
+    const loadingState = useIsLoading();
+
+    return (
+      <LoadingIndicator loadingState={loadingState}>
+        <Component {...props} />
+      </LoadingIndicator>
+    );
+  };
 
 export const withDefaultProvider =
   (Component: React.ComponentType<any>): React.FC<any> =>
   (props: any) => {
     return withReduxComponent(
-      withNetworkProviderComponent(withSafeAreaComponent(Component)),
+      withNetworkProviderComponent(
+        withSafeAreaComponent(
+          withCommandContext(withActivityIndicator(Component)),
+        ),
+      ),
     )(props);
   };

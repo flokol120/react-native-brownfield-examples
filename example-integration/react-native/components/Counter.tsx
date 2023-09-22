@@ -1,13 +1,11 @@
 import {useCallback, useEffect} from 'react';
 import {Text, View, Button, AppRegistry, StyleSheet} from 'react-native';
 import {withDefaultProvider} from '../misc/HOCs';
-import {
-  decrementCounter,
-  incrementCounter,
-  setCounter,
-  useCount,
-} from '../redux/ApplicationState';
+import {setCounter, useCount} from '../redux/ApplicationState';
 import {useDispatch} from 'react-redux';
+import {useCommandController} from '../command/common/CommandController';
+import {IncrementCommand} from '../command/IncrementCommand';
+import {DecrementCommand} from '../command/DecrementCommand';
 
 type CounterProps = {initialCount?: number};
 
@@ -15,15 +13,22 @@ export function Counter({initialCount}: CounterProps) {
   const dispatch = useDispatch();
   const count = useCount();
 
-  const increment = useCallback(() => dispatch(incrementCounter()), [dispatch]);
+  const commandController = useCommandController();
 
-  const decrement = useCallback(() => dispatch(decrementCounter()), [dispatch]);
+  const increment = useCallback(
+    () => commandController?.addCommands(new IncrementCommand()),
+    [commandController],
+  );
+
+  const decrement = useCallback(
+    () => commandController?.addCommands(new DecrementCommand()),
+    [commandController],
+  );
 
   useEffect(() => {
     if (!initialCount) return;
     dispatch(setCounter(initialCount));
   }, [initialCount, dispatch]);
-
   return (
     <View>
       <View style={styles.container}>
