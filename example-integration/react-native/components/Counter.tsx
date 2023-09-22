@@ -1,20 +1,28 @@
-import {useCallback, useState} from 'react';
-import {AppRegistry, Button, StyleSheet, Text, View} from 'react-native';
+import {useCallback, useEffect} from 'react';
+import {Text, View, Button, AppRegistry, StyleSheet} from 'react-native';
+import {withDefaultProvider} from '../misc/HOCs';
+import {
+  decrementCounter,
+  incrementCounter,
+  setCounter,
+  useCount,
+} from '../redux/ApplicationState';
+import {useDispatch} from 'react-redux';
 
 type CounterProps = {initialCount?: number};
 
 export function Counter({initialCount}: CounterProps) {
-  const [count, setCount] = useState(initialCount ?? 0);
+  const dispatch = useDispatch();
+  const count = useCount();
 
-  const increment = useCallback(
-    () => setCount(oldCount => oldCount + 1),
-    [setCount],
-  );
+  const increment = useCallback(() => dispatch(incrementCounter()), [dispatch]);
 
-  const decrement = useCallback(
-    () => setCount(oldCount => oldCount - 1),
-    [setCount],
-  );
+  const decrement = useCallback(() => dispatch(decrementCounter()), [dispatch]);
+
+  useEffect(() => {
+    if (!initialCount) return;
+    dispatch(setCounter(initialCount));
+  }, [initialCount, dispatch]);
 
   return (
     <View>
@@ -59,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Counter', () => Counter);
+AppRegistry.registerComponent('Counter', () => withDefaultProvider(Counter));

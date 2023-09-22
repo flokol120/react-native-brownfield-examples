@@ -12,15 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.facebook.react.ReactFragment;
+import com.flodoerr.exampleintegration.MockDB;
 import com.flodoerr.exampleintegration.R;
 import com.flodoerr.exampleintegration.databinding.FragmentNonFullscreenBinding;
-
-import java.util.Random;
 
 public class NonFullscreenCounterFragment extends Fragment {
 
     private FragmentNonFullscreenBinding binding;
-    private int count = new Random().nextInt(100) + 1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,11 +35,11 @@ public class NonFullscreenCounterFragment extends Fragment {
         button.setOnClickListener(v -> createReactNativeView());
 
         root.findViewById(R.id.increment).setOnClickListener(v -> {
-            count++;
+            MockDB.instance().increment();
             createReactNativeView();
         });
         root.findViewById(R.id.decrement).setOnClickListener(v -> {
-            count--;
+            MockDB.instance().decrement();
             createReactNativeView();
         });
 
@@ -50,7 +48,7 @@ public class NonFullscreenCounterFragment extends Fragment {
 
     private void createReactNativeView() {
         Bundle options = new Bundle();
-        options.putInt("initialCount", count);
+        options.putInt("initialCount", MockDB.instance().getCounter());
         Fragment reactNativeFragment = new ReactFragment.Builder()
                 .setComponentName("Counter")
                 .setLaunchOptions(options)
