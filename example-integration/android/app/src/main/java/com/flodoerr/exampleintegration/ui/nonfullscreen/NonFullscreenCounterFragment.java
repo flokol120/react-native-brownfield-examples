@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.facebook.react.ReactFragment;
 import com.flodoerr.exampleintegration.MockDB;
 import com.flodoerr.exampleintegration.R;
+import com.flodoerr.exampleintegration.ReduxMirror;
 import com.flodoerr.exampleintegration.databinding.FragmentNonFullscreenBinding;
 
 public class NonFullscreenCounterFragment extends Fragment {
@@ -35,12 +36,10 @@ public class NonFullscreenCounterFragment extends Fragment {
         button.setOnClickListener(v -> createReactNativeView());
 
         root.findViewById(R.id.increment).setOnClickListener(v -> {
-            MockDB.instance().increment();
-            createReactNativeView();
+            ReduxMirror.set("incrementCounter");
         });
         root.findViewById(R.id.decrement).setOnClickListener(v -> {
-            MockDB.instance().decrement();
-            createReactNativeView();
+            ReduxMirror.set("decrementCounter");
         });
 
         return root;

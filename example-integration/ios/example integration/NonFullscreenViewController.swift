@@ -34,12 +34,10 @@ class NonFullscreenViewController: UIViewController {
     }
     
     @IBAction func increment() {
-        MockDB.instance().increment()
-        self.openReactNative()
+        ReduxMirror.setState(action: "incrementCounter", payload: nil)
     }
     
     @IBAction func decrement() {
-        MockDB.instance().decrement()
-        self.openReactNative()
+        ReduxMirror.setState(action: "decrementCounter", payload: nil)
     }
 }

@@ -34,5 +34,13 @@
     "android": "react-native run-android",
     "android:port": "adb reverse tcp:8081 tcp:8081",
     "ios:pods": "cd ios && USE_FABRIC=1 RCT_NEW_ARCH_ENABLED=1 pod install"
+  },
+  "codegenConfig": {
+    "name": "RTNExampleIntegrationSpec",
+    "type": "modules",
+    "jsSrcsDir": "turbo-files",
+    "android": {
+      "javaPackageName": "com.flodoerr.exampleintegration"
+    }
   }
 }

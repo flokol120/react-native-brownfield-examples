@@ -17,6 +17,8 @@
 		8442BDB52A8538C800D41AEC /* NonFullscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442BDB32A8538C800D41AEC /* NonFullscreenViewController.swift */; };
 		8442BDB62A8538C800D41AEC /* FullscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442BDB42A8538C800D41AEC /* FullscreenViewController.swift */; };
 		8482CC1D2ABDA72900FE3624 /* MockDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482CC1C2ABDA72900FE3624 /* MockDB.swift */; };
+		8482CC202ABDAC7500FE3624 /* RTNReduxMirror.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8482CC1F2ABDAC7500FE3624 /* RTNReduxMirror.mm */; };
+		8482CC232ABDADB700FE3624 /* ReduxMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482CC222ABDADB700FE3624 /* ReduxMirror.swift */; };
 		BA051166339D2D8F124A898A /* libPods-example integration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 432900BEFD359A26DC4D6114 /* libPods-example integration.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,9 @@
 		8442BDB32A8538C800D41AEC /* NonFullscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonFullscreenViewController.swift; sourceTree = "<group>"; };
 		8442BDB42A8538C800D41AEC /* FullscreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenViewController.swift; sourceTree = "<group>"; };
 		8482CC1C2ABDA72900FE3624 /* MockDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDB.swift; sourceTree = "<group>"; };
+		8482CC1F2ABDAC7500FE3624 /* RTNReduxMirror.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RTNReduxMirror.mm; sourceTree = "<group>"; };
+		8482CC212ABDAC8B00FE3624 /* RTNReduxMirror.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTNReduxMirror.h; sourceTree = "<group>"; };
+		8482CC222ABDADB700FE3624 /* ReduxMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxMirror.swift; sourceTree = "<group>"; };
 		EFDDCA01EBC001A7EAC78758 /* Pods-example integration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example integration.release.xcconfig"; path = "Target Support Files/Pods-example integration/Pods-example integration.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +112,9 @@
 				8442BDAB2A85313200D41AEC /* main.m */,
 				8442BDB22A8538C700D41AEC /* example integration-Bridging-Header.h */,
 				8482CC1C2ABDA72900FE3624 /* MockDB.swift */,
+				8482CC1F2ABDAC7500FE3624 /* RTNReduxMirror.mm */,
+				8482CC212ABDAC8B00FE3624 /* RTNReduxMirror.h */,
+				8482CC222ABDADB700FE3624 /* ReduxMirror.swift */,
 			);
 			path = "example integration";
 			sourceTree = "<group>";
@@ -265,7 +273,9 @@
 			files = (
 				8442BDB52A8538C800D41AEC /* NonFullscreenViewController.swift in Sources */,
 				8442BDB62A8538C800D41AEC /* FullscreenViewController.swift in Sources */,
+				8482CC202ABDAC7500FE3624 /* RTNReduxMirror.mm in Sources */,
 				8442BDA12A85312E00D41AEC /* ViewController.m in Sources */,
+				8482CC232ABDADB700FE3624 /* ReduxMirror.swift in Sources */,
 				8442BD9B2A85312E00D41AEC /* AppDelegate.m in Sources */,
 				8482CC1D2ABDA72900FE3624 /* MockDB.swift in Sources */,
 				8442BDAC2A85313200D41AEC /* main.m in Sources */,

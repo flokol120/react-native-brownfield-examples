@@ -3,7 +3,6 @@ package com.flodoerr.exampleintegration;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -14,15 +13,10 @@ import com.facebook.react.bridge.JSIModulePackage;
 import com.facebook.react.bridge.JSIModuleProvider;
 import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JSIModuleType;
-import com.facebook.react.bridge.JavaScriptContextHolder;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.UIManager;
-import com.facebook.react.common.MapBuilder;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.react.fabric.ComponentFactory;
 import com.facebook.react.fabric.CoreComponentsRegistry;
-import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
@@ -49,6 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
             List<ReactPackage> packages = new PackageList(this).getPackages();
             // Packages that cannot be autolinked yet can be added manually here
             // This includes self-written packages as described in the thesis
+            packages.add(new ExampleIntegrationPackage());
             return packages;
         }
 
