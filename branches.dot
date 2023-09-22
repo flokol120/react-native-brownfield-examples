@@ -1,0 +1,30 @@
+graph Branches {
+fontname="Roboto";
+"native_module_logging" -- "main" [dir=back];
+"event_emitter" -- "native_module_logging" [dir=back];
+"turbo_native_module" -- "event_emitter" [dir=back];
+"native_component" -- "native_module_logging" [dir=back];
+"react_native_integration" -- "main" [dir=back];
+"react_native_integration_fabric" -- "react_native_integration" [dir=back];
+"data_sync_base" -- "react_native_integration" [dir=back];
+"data_sync_base_fabric" -- "react_native_integration_fabric" [dir=back];
+"data_sync_redux_mirror" -- "data_sync_base_fabric" [dir=back];
+"data_sync_rest_api" -- "data_sync_base" [dir=back];
+"data_sync_command_syncing" -- "data_sync_base_fabric" [dir=back];
+"data_sync_redux_mirror_profiling" -- "data_sync_redux_mirror" [dir=back];
+
+# Node list
+"data_sync_redux_mirror_profiling" [label="data-sync-redux-mirror-profiling",style=filled,color=black,fillcolor=darkkhaki,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/data-sync-redux-mirror..data-sync-redux-mirror-profiling"]
+"data_sync_command_syncing" [label="data-sync-command-syncing",style=filled,color=black,fillcolor=seagreen,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/data-sync-base-fabric..data-sync-command-syncing"]
+"data_sync_rest_api" [label="data-sync-rest-api",style=filled,color=black,fillcolor=darkgreen,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/data-sync-base..data-sync-rest-api"]
+"data_sync_redux_mirror" [label="data-sync-redux-mirror",style=filled,color=black,fillcolor=seagreen,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/data-sync-base-fabric..data-sync-redux-mirror"]
+"data_sync_base_fabric" [label="data-sync-base-fabric",style=filled,color=black,fillcolor=darkgreen,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/data-sync-base..data-sync-base-fabric"]
+"data_sync_base" [label="data-sync-base",style=filled,color=black,fillcolor=chartreuse4,href="https://github.com/flokol120/react-native-brownfield-examples/compare/react-native-integration..data-sync-base"]
+"react_native_integration_fabric" [label="react-native-integration-fabric",style=filled,color=black,fillcolor=chartreuse4,href="https://github.com/flokol120/react-native-brownfield-examples/compare/react-native-integration..react-native-integration-fabric"]
+"react_native_integration" [label="react-native-integration",style=filled,color=black,fillcolor=chartreuse3,href="https://github.com/flokol120/react-native-brownfield-examples/compare/main..react-native-integration"]
+"native_component" [label="native-component",style=filled,color=black,fillcolor=chartreuse4,href="https://github.com/flokol120/react-native-brownfield-examples/compare/native-module-logging..native-component"]
+"turbo_native_module" [label="turbo-native-module",style=filled,color=black,fillcolor=darkgreen,fontcolor=white,href="https://github.com/flokol120/react-native-brownfield-examples/compare/event-emitter..turbo-native-module"]
+"event_emitter" [label="event-emitter",style=filled,color=black,fillcolor=chartreuse4,href="https://github.com/flokol120/react-native-brownfield-examples/compare/native-module-logging..event-emitter"]
+"native_module_logging" [label="native-module-logging",style=filled,color=black,fillcolor=chartreuse3,href="https://github.com/flokol120/react-native-brownfield-examples/compare/main..native-module-logging"]
+"main" [label="main",style=filled,color=black,fillcolor=chartreuse,href="https://github.com/flokol120/react-native-brownfield-examples/tree/main",root=true]
+}
